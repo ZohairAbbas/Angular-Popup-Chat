@@ -1,0 +1,24 @@
+<div class="chat-window" [ngClass]="{ minimized: isMinimized }">
+  <div class="chat-header" [ngClass]="{ minimized: isMinimized }">
+    <h2>Chat</h2>
+    <div>
+      <button mat-icon-button (click)="isMinimized = !isMinimized"></button>
+    </div>
+  </div>
+  <div class="chat-messages" [ngClass]="{ minimized: isMinimized }">
+    <ul>
+      <li *ngFor="let message of messages">{{ message }}</li>
+    </ul>
+  </div>
+  <div class="chat-input" [ngClass]="{ minimized: isMinimized }">
+    <input
+      type="text"
+      [(ngModel)]="newMessage"
+      placeholder="Type a message..."
+      #messageInput
+    />
+    <button mat-icon-button (click)="sendMessage()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</div>
